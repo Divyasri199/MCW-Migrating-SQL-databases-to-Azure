@@ -10,7 +10,7 @@ In this exercise, you use the **Azure Database Migration Service** here `https:/
 
 In this task, you create a new SMB network share on the Sql2008-SUFFIX VM. DMS uses this shared folder for retrieving backups of the `WideWorldImporters` database during the database migration process.
 
-1. On the Sql2008-<inject key="Suffix"/> VM, open **Windows Explorer** by selecting its icon on the Windows Taskbar.
+1. On the Sql2008-<inject key="Suffix" /> VM, open **Windows Explorer** by selecting its icon on the Windows Taskbar.
 
    ![The Windows Explorer icon is highlighted in the Windows Taskbar.](media/windows-task-bar.png "Windows Taskbar")
 
