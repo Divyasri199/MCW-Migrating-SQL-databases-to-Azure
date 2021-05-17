@@ -146,7 +146,7 @@ In this task, you use the Azure Cloud shell to retrieve the information necessar
 
    ```powershell
    $resourceGroup = "<your-resource-group-name>"
-   az vm list-ip-addresses -g $resourceGroup -n Sql2008-SUFFIX --output table
+   az vm list-ip-addresses -g $resourceGroup -n Sql2008-<inject key="Suffix" /> --output table
    ```
 
    > **Note**
@@ -155,7 +155,7 @@ In this task, you use the Azure Cloud shell to retrieve the information necessar
 
 6. Within the output, locate and copy the value of the `ipAddress` property below the `PublicIPAddresses` field. Paste the value into a text editor, such as Notepad.exe, for later reference.
 
-   ![The output from the az vm list-ip-addresses command is displayed in the Cloud Shell, and the public IP address for the Sql2008-SUFFIX VM is highlighted.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/vmip.png "Azure Cloud Shell")
+   ![The output from the az vm list-ip-addresses command is displayed in the Cloud Shell, and the public IP address for the Sql2008-<inject key="Suffix" /> VM is highlighted.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/vmip.png "Azure Cloud Shell")
 
 7. Leave the Azure Cloud Shell open for the next task.
 
@@ -163,9 +163,9 @@ In this task, you use the Azure Cloud shell to retrieve the information necessar
 
 In this task, you create a new online data migration project in DMS for the `WideWorldImporters` database.
 
-1. In the Azure portal `https://portal.azure.com`, navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, selecting the **hands-on-lab-SUFFIX** resource group, and then selecting the **wwi-dms** Azure Database Migration Service in the list of resources.
+1. In the Azure portal `https://portal.azure.com`, navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, selecting the **hands-on-lab-<inject key="Suffix" />** resource group, and then selecting the **wwi-dms** Azure Database Migration Service in the list of resources.
 
-   ![The wwi-dms Azure Database Migration Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-dms-resource.png "Resources")
+   ![The wwi-dms Azure Database Migration Service is highlighted in the list of resources in the hands-on-lab-<inject key="Suffix" /> resource group.](media/resource-group-dms-resource.png "Resources")
 
 2. On the Azure Database Migration Service blade, select **+New Migration Project**.
 
@@ -216,8 +216,8 @@ In this task, you create a new online data migration project in DMS for the `Wid
 
 11. On the Migration Wizard **Configure migration settings** tab, enter the following configuration:
 
-    - **Network share location**: Populate this field with the path to the SMB network share you created previously by entering `\\SQL2008-SUFFIX\dms-backups`.
-    - **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `SQL2008-SUFFIX\sqlmiuser.`
+    - **Network share location**: Populate this field with the path to the SMB network share you created previously by entering `\\SQL2008-<inject key="Suffix" />\dms-backups`.
+    - **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `SQL2008-<inject key="Suffix" />\sqlmiuser.`
     - **Password**: Enter `Password.1234567890`
     - **Subscription containing storage account**: Select the subscription you are using for this hands-on lab.
     - **Storage account**: Select the **sqlmistore######** storage account.
@@ -225,7 +225,7 @@ In this task, you create a new online data migration project in DMS for the `Wid
     ![The Migration Wizard Configure migration settings tab is displayed, with the values specified above entered into the appropriate fields.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/dm12.png "Migration Wizard Configure migration settings")
  
  - Click on **Advance Settings**. 
- - **WideWorldImporters**: Enter **Target Database name** WideWorldImportersSUFFIX. 
+ - **WideWorldImporters**: Enter **Target Database name** WideWorldImporters<inject key="Suffix" />. 
 
    Note: - You can get SUFFIX details from you Environment details page 
 
@@ -391,6 +391,6 @@ In this task, you connect to the SQL MI database using SSMS and quickly verify t
 
     ![In the new query window, the query above has been entered, and in the results pane, the new Space Adventure game is highlighted.](media/ssms-query-game-table.png "SSMS Query")
 
-13. You are done using the Sql2008-SUFFIX VM. Close any open windows and log off the VM. The JumpBox VM is used for the remaining tasks of this hands-on lab.
+13. You are done using the Sql2008-<inject key="Suffix" /> VM. Close any open windows and log off the VM. The JumpBox VM is used for the remaining tasks of this hands-on lab.
 
 
