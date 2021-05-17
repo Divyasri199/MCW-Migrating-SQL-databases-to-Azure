@@ -6,9 +6,9 @@ In this exercise, you use the **Azure Database Migration Service** here `https:/
 
 > The Business Critical service tier is designed for business applications with the highest performance and high-availability (HA) requirements. To learn more, read the Managed Instance service tiers documentation.
 
-### Task 1: Create an SMB network share on the Sql2008-SUFFIX VM
+### Task 1: Create an SMB network share on the Sql2008-<inject key="Suffix" /> VM
 
-In this task, you create a new SMB network share on the Sql2008-SUFFIX VM. DMS uses this shared folder for retrieving backups of the `WideWorldImporters` database during the database migration process.
+In this task, you create a new SMB network share on the Sql2008-<inject key="Suffix" /> VM. DMS uses this shared folder for retrieving backups of the `WideWorldImporters` database during the database migration process.
 
 1. On the Sql2008-<inject key="Suffix" /> VM, open **Windows Explorer** by selecting its icon on the Windows Taskbar.
 
@@ -30,7 +30,7 @@ In this task, you create a new SMB network share on the Sql2008-SUFFIX VM. DMS u
 
    ![In the Network discovery and file sharing dialog, No, make the network that I am connected to a private network is highlighted.](media/network-discovery-and-file-sharing.png "Network discovery and file sharing")
 
-6. Back on the File Sharing dialog, note the shared folder's path, `\\SQL2008-SUFFIX\dms-backups`, and select **Done** to complete the sharing process.
+6. Back on the File Sharing dialog, note the shared folder's path, `\\SQL2008-<inject key="Suffix" />\dms-backups`, and select **Done** to complete the sharing process.
 
    ![The Done button is highlighted on the File Sharing dialog.](media/file-sharing-done.png "File Sharing")
 
@@ -38,7 +38,7 @@ In this task, you create a new SMB network share on the Sql2008-SUFFIX VM. DMS u
 
 In this task, you use the SQL Server Configuration Manager to update the service account used by the SQL Server (MSSQLSERVER) service to the `sqlmiuser` account. Changing the account used for this service ensures it has the appropriate permissions to write backups to the shared folder.
 
-1. On your Sql2008-SUFFIX VM, select the **Start menu**, enter "sql configuration" into the search bar, and then select **SQL Server Configuration Managed** from the search results.
+1. On your Sql2008-<inject key="Suffix" /> VM, select the **Start menu**, enter "sql configuration" into the search bar, and then select **SQL Server Configuration Managed** from the search results.
 
    ![In the Windows Start menu, "sql configuration" is entered into the search box, and SQL Server Configuration Manager is highlighted in the search results.](media/windows-start-sql-configuration-manager.png "Windows search")
 
@@ -71,17 +71,17 @@ In this task, you use the SQL Server Configuration Manager to update the service
 
 ### Task 3: Create a backup of the WideWorldImporters database
 
-To perform online data migrations, DMS looks for database and transaction log backups in the shared SMB backup folder on the source database server. In this task, you create a backup of the `WideWorldImporters` database using SSMS and write it to the `\\SQL2008-SUFFIX\dms-backups` SMB network share you made in a previous task. The backup file needs to include a checksum, so you add that during the backup steps.
+To perform online data migrations, DMS looks for database and transaction log backups in the shared SMB backup folder on the source database server. In this task, you create a backup of the `WideWorldImporters` database using SSMS and write it to the `\\SQL2008-<inject key="Suffix" />X\dms-backups` SMB network share you made in a previous task. The backup file needs to include a checksum, so you add that during the backup steps.
 
 1. On the Sql2008-SUFFIX VM, open **Microsoft SQL Server Management Studio 17** by entering "sql server" into the search bar in the Windows Start menu.
 
    ![SQL Server is entered into the Windows Start menu search box, and Microsoft SQL Server Management Studio 17 is highlighted in the search results.](media/start-menu-ssms-17.png "Windows start menu search")
 
-2. In the SSMS **Connect to Server** dialog, enter **SQL2008-SUFFIX** into the Server name box, ensure **Windows Authentication** is selected, and then select **Connect**.
+2. In the SSMS **Connect to Server** dialog, enter **SQL2008-<inject key="Suffix" />** into the Server name box, ensure **Windows Authentication** is selected, and then select **Connect**.
 
-   ![The SQL Server Connect to Search dialog is displayed, with SQL2008-SUFFIX entered into the Server name and Windows Authentication selected.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/ssms.png "Connect to Server")
+   ![The SQL Server Connect to Search dialog is displayed, with SQL2008-<inject key="Suffix" /> entered into the Server name and Windows Authentication selected.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/ssms.png "Connect to Server")
 
-3. Once connected, expand **Databases** under SQL2008-SUFFIX in the Object Explorer, and then right-click the **WideWorldImporters** database. In the context menu, select **Tasks** and then **Back Up**.
+3. Once connected, expand **Databases** under SQL2008-<inject key="Suffix" /> in the Object Explorer, and then right-click the **WideWorldImporters** database. In the context menu, select **Tasks** and then **Back Up**.
 
    ![In the SSMS Object Explorer, the context menu for the WideWorldImporters database is displayed, with Tasks and Back Up... highlighted.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/dm5.png "SSMS Backup")
 
@@ -120,7 +120,7 @@ To perform online data migrations, DMS looks for database and transaction log ba
 
 ### Task 4: Retrieve SQL MI and SQL Server 2008 VM connection information
 
-In this task, you use the Azure Cloud shell to retrieve the information necessary to connect to your Sql2008-SUFFIX VM from DMS.
+In this task, you use the Azure Cloud shell to retrieve the information necessary to connect to your Sql2008-<inject key="Suffix" /> VM from DMS.
 
 1. In the Azure portal `https://portal.azure.com`, select the Azure Cloud Shell icon from the top menu.
 
