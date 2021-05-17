@@ -113,7 +113,7 @@ In this task, you use the Microsoft Data Migration Assistant (DMA) to assess the
 
 6. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
-   - **Server name**: Enter **SQL2008-SUFFIX**.
+   - **Server name**: Enter **SQL2008-<inject key="DeploymentID" />**.
    - **Authentication type**: Select **SQL Server Authentication**.
    - **Username**: Enter `WorkshopUser`
    - **Password**: Enter `Password.1234567890`
