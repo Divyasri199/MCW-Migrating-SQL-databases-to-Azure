@@ -73,7 +73,7 @@ In this task, you use the SQL Server Configuration Manager to update the service
 
 To perform online data migrations, DMS looks for database and transaction log backups in the shared SMB backup folder on the source database server. In this task, you create a backup of the `WideWorldImporters` database using SSMS and write it to the `\\SQL2008-<inject key="Suffix" />X\dms-backups` SMB network share you made in a previous task. The backup file needs to include a checksum, so you add that during the backup steps.
 
-1. On the Sql2008-SUFFIX VM, open **Microsoft SQL Server Management Studio 17** by entering "sql server" into the search bar in the Windows Start menu.
+1. On the Sql2008-<inject key="Suffix" /> VM, open **Microsoft SQL Server Management Studio 17** by entering "sql server" into the search bar in the Windows Start menu.
 
    ![SQL Server is entered into the Windows Start menu search box, and Microsoft SQL Server Management Studio 17 is highlighted in the search results.](media/start-menu-ssms-17.png "Windows start menu search")
 
@@ -184,7 +184,7 @@ In this task, you create a new online data migration project in DMS for the `Wid
 
 5. On the Migration Wizard **Select source** tab, enter the following:
 
-   - **Source SQL Server instance name**: Enter the IP address of your Sql2008-SUFFIX VM that you copied into a text editor in the previous task. For example, `40.65.112.26`.
+   - **Source SQL Server instance name**: Enter the IP address of your Sql2008-<inject key="Suffix" /> VM that you copied into a text editor in the previous task. For example, `40.65.112.26`.
    - **Authentication type**: Select SQL Authentication.
    - **Username**: Enter `WorkshopUser`
    - **Password**: Enter `Password.1234567890`
@@ -356,7 +356,7 @@ In this task, you connect to the SQL MI database using SSMS and quickly verify t
 
    ![The output from the az sql mi list command is displayed in the Cloud Shell, and the fullyQualifiedDomainName property and value are highlighted.](media/cloud-shell-az-sql-mi-list-output.png "Azure Cloud Shell")
 
-6. Return to SSMS on your Sql2008-SUFFIX VM, and then select **Connect** and **Database Engine** from the Object Explorer menu.
+6. Return to SSMS on your Sql2008-<inject key="Suffix" /> VM, and then select **Connect** and **Database Engine** from the Object Explorer menu.
 
    ![In the SSMS Object Explorer, Connect is highlighted in the menu, and Database Engine is highlighted in the Connect context menu.](media/ssms-object-explorer-connect.png "SSMS Connect")
 
@@ -372,16 +372,16 @@ In this task, you connect to the SQL MI database using SSMS and quickly verify t
 
 8. Select **Connect**. 
 
-9. The SQL MI connection appears below the SQL2008-SUFFIX connection. Expand Databases the SQL MI connection and select the `WideWorldImportersSUFFIX` database.
+9. The SQL MI connection appears below the SQL2008-<inject key="Suffix" /> connection. Expand Databases the SQL MI connection and select the `WideWorldImportersSUFFIX` database.
 
    ![In the SSMS Object Explorer, the SQL MI connection is expanded, and the WideWorldImporters database is highlighted and selected.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/dm23.png "SSMS Object Explorer")
 
-10. With the `WideWorldImportersSUFFIX` database selected, select **New Query** on the SSMS toolbar to open a new query window.
+10. With the `WideWorldImporters<inject key="Suffix" />` database selected, select **New Query** on the SSMS toolbar to open a new query window.
 
 11. In the new query window, enter the following SQL script:
 
     ```sql
-    USE WideWorldImportersSUFFIX;
+    USE WideWorldImporters<inject key="Suffix" />;
     GO
 
     SELECT * FROM Game
