@@ -20,7 +20,7 @@ In this task, you perform some configuration for the `WideWorldImporters` databa
 
    ![Resource groups is selected in the Azure navigation pane, and the "hands-on-lab-SUFFIX" resource group is highlighted.](./media/resource-groups.png "Resource groups list")
 
-1. In the list of resources for your resource group, select the Sql2008-SUFFIX VM.
+1. In the list of resources for your resource group, select the Sql2008-<inject key="DeploymentID" />.
 
    ![The SqlServer2008 VM is highlighted in the list of resources.](https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Migrating-SQL-databases-to-Azure/fix/Hands-on%20lab/media/images/vmrg.png "Resource list")
 
