@@ -90,7 +90,7 @@ In this task, you update the WWI gamer info web application to connect to and ut
 6. The value of the connection string should look like:
 
    ```sql
-   Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=WideWorldImporters<inject key="Suffix" />;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
+   Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=WideWorldImportersSUFFIX;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
    ```
 
 7. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell and update the database SUFFIX with the <inject key="Suffix" /> value from Environment details page.
